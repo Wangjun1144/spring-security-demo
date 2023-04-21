@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>hello spring security</h1>
+<p>username: <span th:text="${username}"></span></p>
+<p>principal: <span th:text="${principal}"></span></p>
+<p>authorities: <span th:text="${authorities}"></span></p>
+<a href="/admin" th:href="@{/admin}">goto admin page</a>
+<form th:action="@{/user/logout}" method="post">
+  <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
+  <input type="submit" value="logout">
+</form>
+<form th:action="@{/users/list}" method="get">
+  <input type="submit" value="获取用户信息">
+</form>
+
+<form id="getbyid" method="post" th:action="@{/users/id}">
+  <input type="text" name="id" >
+  <input type="submit" name="id" value="通过id查找用户">
+</form>
+
+</form>
+</body>
+</html>
